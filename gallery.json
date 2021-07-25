@@ -1,0 +1,50 @@
+step 1:
+npm i react-native-image-picker 
+step 2:
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+step 3:
+launchCamera(options?, callback);
+             
+             or
+launchImageLibrary(options?, callback)
+
+step 4:
+ <View>
+      <Button
+        title={"Crop picture"}
+        onPress={selectFile}
+      />
+      <Button
+        title={"from gallery"}
+        onPress={gallery}
+      />
+      <Image
+        style={{width:100,height:100}}
+        source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
+      />
+      <Image
+        style={{width:100,height:100}}
+        source={{uri: "file:///storage/emulated/0/Android/data/com.crop_picture/files/Pictures/9a3b61e1-e1af-4a00-b646-97215a15d45f.jpg"}}
+      />
+      <Image
+        style={{width:100,height:100}}
+        source={{uri:"file:///data/user/0/com.crop_picture/cache/rn_image_picker_lib_temp_f3c5df7c-a833-4db7-986a-9c1e60929e9f.jpg"
+        }}
+      />
+
+    </View>
+step 5:
+const [fileName, setFileName] = useState('N/A');
+ const gallery=()=>{
+   launchImageLibrary({
+      width: 300,
+      height: 400,
+      mediaType: 'photo',
+
+    },rest=>{
+   // console.log(rest)
+     setFileName(rest)
+     console.log(fileName)
+
+  })
+  }
