@@ -35,6 +35,18 @@ step 4:
     </View>
 step 5:
 const [fileName, setFileName] = useState('N/A');
+const camera=()=>{
+   launchCamera({
+     width: 300,
+     height: 400,
+     mediaType: 'photo',
+   }, rest=>{
+     // console.log(rest)
+     setFileName(rest)
+     console.log(fileName)
+
+   });
+ }
  const gallery=()=>{
    launchImageLibrary({
       width: 300,
